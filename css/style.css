@@ -671,3 +671,9 @@ section, main, .hero, .header, .footer{
   display: block;
   opacity: .95;
 }
+/* round logos */
+.brand__logo,
+.footer__logo{
+  border-radius: 50%;
+  object-fit: cover;
+}
