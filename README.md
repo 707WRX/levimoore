@@ -6,5 +6,5 @@
 - JS: `/js/main.js` (drawer, reveal, glass glow, magnetic buttons, contact form)
 - Serverless: `/functions/api/contact.js` (Cloudflare Pages Function → Resend)
 
-Levi’s portrait image at:
-`/assets/img/levi.png` (keep the same filename)
+images at:
+`/assets/img/` (keep the same filenames)
