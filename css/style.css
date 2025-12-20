@@ -642,3 +642,20 @@ button{font:inherit}
   .fieldRow{ grid-template-columns: 1fr; }
   .mapWrap iframe{ height: 340px; }
 }
+
+/* === GLOBAL BACKGROUND: move to html to avoid section seams with backdrop-filter === */
+html{
+  background:
+    radial-gradient(1200px 800px at 20% -10%, rgba(214,186,110,.12), transparent 60%),
+    radial-gradient(900px 600px at 90% 10%, rgba(150,190,255,.08), transparent 55%),
+    linear-gradient(180deg, var(--bg0), var(--bg1) 50%, var(--bg2));
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+body{
+  background: transparent !important;
+}
+section, main, .hero, .header, .footer{
+  background: transparent !important;
+}
