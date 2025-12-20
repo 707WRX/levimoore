@@ -134,22 +134,36 @@
     }
   });
 
-  // Theme toggle (dark/light) + persistence
+// Theme toggle (dark/light) + persistence + UI sync
 const themeBtn = document.querySelector("#themeToggle");
 const root = document.documentElement;
+const themeMeta = document.querySelector('meta[name="theme-color"]');
+
+function setThemeColor(isLight){
+  if(!themeMeta) return;
+  themeMeta.setAttribute("content", isLight ? "#F5F5F7" : "#07080B");
+}
 
 function applyTheme(t){
-  if(t === "light") root.setAttribute("data-theme", "light");
+  const isLight = (t === "light");
+  if(isLight) root.setAttribute("data-theme", "light");
   else root.removeAttribute("data-theme"); // default dark
+  setThemeColor(isLight);
+
+  if(themeBtn){
+    themeBtn.setAttribute("aria-label", isLight ? "Switch to dark mode" : "Switch to light mode");
+    themeBtn.setAttribute("title", "Toggle theme");
+  }
 }
 
 const saved = localStorage.getItem("theme");
 if(saved === "light") applyTheme("light");
 
-// optional: default to system if nothing saved
+// default to system if nothing saved
 if(!saved){
   const prefersLight = window.matchMedia && window.matchMedia("(prefers-color-scheme: light)").matches;
   if(prefersLight) applyTheme("light");
+  else applyTheme("dark");
 }
 
 themeBtn?.addEventListener("click", () => {
