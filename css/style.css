@@ -21,6 +21,36 @@
   --sectionY: 220px;
   --sectionY-tight: 96px;
 }
+/* Light theme overrides */
+html[data-theme="light"]{
+  --bg0: #F5F5F7;
+  --bg1: #FFFFFF;
+  --bg2: #EEF1F5;
+
+  --text: rgba(15,23,42,.92);
+  --muted: rgba(15,23,42,.62);
+
+  --card: rgba(15,23,42,.06);
+  --stroke: rgba(15,23,42,.12);
+
+  --shadow: 0 26px 80px rgba(15,23,42,.12);
+}
+
+/* Improve glass + borders in light mode */
+html[data-theme="light"] .glass{
+  background: rgba(255,255,255,.60);
+  border-color: rgba(15,23,42,.12);
+}
+
+html[data-theme="light"] .btn{
+  border-color: rgba(15,23,42,.12);
+  background: rgba(15,23,42,.04);
+}
+
+html[data-theme="light"] .btn:hover{
+  border-color: rgba(15,23,42,.18);
+  background: rgba(15,23,42,.06);
+}
 
 /* Reset */
 *{box-sizing:border-box}
