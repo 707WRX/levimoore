@@ -696,3 +696,9 @@ section, main, .hero, .header, .footer{
     max-height: 300px;
   }
 }
+.drawer__links .btn{
+  justify-content:center;
+  width:100%;
+  padding: 12px 14px;
+  box-shadow:none;
+}
