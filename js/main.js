@@ -134,4 +134,29 @@
     }
   });
 
+  // Theme toggle (dark/light) + persistence
+const themeBtn = document.querySelector("#themeToggle");
+const root = document.documentElement;
+
+function applyTheme(t){
+  if(t === "light") root.setAttribute("data-theme", "light");
+  else root.removeAttribute("data-theme"); // default dark
+}
+
+const saved = localStorage.getItem("theme");
+if(saved === "light") applyTheme("light");
+
+// optional: default to system if nothing saved
+if(!saved){
+  const prefersLight = window.matchMedia && window.matchMedia("(prefers-color-scheme: light)").matches;
+  if(prefersLight) applyTheme("light");
+}
+
+themeBtn?.addEventListener("click", () => {
+  const isLight = root.getAttribute("data-theme") === "light";
+  const next = isLight ? "dark" : "light";
+  applyTheme(next);
+  localStorage.setItem("theme", next);
+});
+
 })();
