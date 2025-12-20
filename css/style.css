@@ -160,6 +160,29 @@ button{font:inherit}
   cursor:pointer;
   color: #fff;
 }
+/* Theme toggle icon button */
+.themeToggle{
+  width: 42px;
+  height: 42px;
+  padding: 0;
+  display: inline-grid;
+  place-items: center;
+  border-radius: 999px;
+}
+
+.themeIcon{
+  width: 18px;
+  height: 18px;
+  display: block;
+}
+
+.themeIcon--sun{ display:none; } /* dark default */
+html[data-theme="light"] .themeIcon--sun{ display:block; }
+html[data-theme="light"] .themeIcon--moon{ display:none; }
+
+/* make icon always visible */
+.themeToggle{ color: rgba(255,255,255,.92); }
+html[data-theme="light"] .themeToggle{ color: rgba(15,23,42,.82); }
 
 /* Mobile drawer */
 .drawer{
