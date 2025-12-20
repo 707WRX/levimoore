@@ -38,9 +38,22 @@ html[data-theme="light"]{
 
 html[data-theme="light"]{
   background:
-    radial-gradient(1200px 800px at 20% -10%, rgba(214,186,110,.18), transparent 60%),
-    radial-gradient(900px 600px at 90% 10%, rgba(214,186,110,.12), transparent 55%),
-    linear-gradient(180deg, var(--bg0), var(--bg1) 60%, var(--bg2));
+    radial-gradient(
+      1400px 1000px at 22% 24%,
+      rgba(214,186,110,.26),
+      transparent 72%
+    ),
+    radial-gradient(
+      1000px 700px at 88% 18%,
+      rgba(214,186,110,.16),
+      transparent 65%
+    ),
+    linear-gradient(
+      180deg,
+      var(--bg0),
+      var(--bg1) 60%,
+      var(--bg2)
+    );
   background-repeat: no-repeat;
   background-attachment: fixed;
 }
