@@ -18,8 +18,8 @@
   --ease: cubic-bezier(.2,.8,.2,1);
 
   --container: 1160px;
-  --sectionY: 140px;
-  --sectionY-tight: 96px;
+  --sectionY: 1800px;
+  --sectionY-tight: 110px;
 }
 
 /* Reset */
