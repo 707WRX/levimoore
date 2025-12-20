@@ -97,16 +97,6 @@ button{font:inherit}
   align-items:center;
   gap:10px;
 }
-.brand__mark{
-  width: 34px;
-  height: 34px;
-  border-radius: 10px;
-  background:
-    radial-gradient(12px 12px at 35% 35%, rgba(255,255,255,.28), transparent 60%),
-    linear-gradient(135deg, rgba(214,186,110,.55), rgba(80,120,255,.18));
-  border:1px solid rgba(255,255,255,.14);
-  box-shadow: 0 18px 60px rgba(0,0,0,.35);
-}
 .brand__text{
   display:flex;
   flex-direction:column;
@@ -658,4 +648,20 @@ body{
 }
 section, main, .hero, .header, .footer{
   background: transparent !important;
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+}
+
+.brand__logo{
+  height: 34px;        /* Desktop */
+  width: auto;
+  display: block;
+}
+@media (max-width: 640px){
+  .brand__logo{
+    height: 30px;
+  }
 }
