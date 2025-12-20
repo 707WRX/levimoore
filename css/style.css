@@ -18,7 +18,7 @@
   --ease: cubic-bezier(.2,.8,.2,1);
 
   --container: 1160px;
-  --sectionY: 1800px;
+  --sectionY: 180px;
   --sectionY-tight: 110px;
 }
 
@@ -82,7 +82,7 @@ button{font:inherit}
   z-index: 80;
   padding: 14px 0;
   border-bottom: 1px solid rgba(255,255,255,.08);
-  background: rgba(8,10,14,.55);
+  background: none;
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
 }
