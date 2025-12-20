@@ -47,6 +47,7 @@ button{font:inherit}
 
 .section{
   padding: var(--sectionY) 0;
+  background:none !important;
 }
 .section.tight{ padding: var(--sectionY-tight) 0; }
 
