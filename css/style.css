@@ -685,7 +685,7 @@ section, main, .hero, .header, .footer{
 .portrait--signature img{
   height: 100%;
   object-fit: cover;
-  object-position: center center;
+  object-position: center 65%;
 }
 @media (max-width: 640px){
   .portrait--signature{
