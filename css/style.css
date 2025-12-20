@@ -39,9 +39,9 @@ html[data-theme="light"]{
 html[data-theme="light"]{
   background:
     radial-gradient(
-      1400px 1000px at 22% 24%,
-      rgba(214,186,110,.26),
-      transparent 72%
+      1200px 900px at 12% 12%,
+      rgba(214,186,110,.34),
+      transparent 70%
     ),
     radial-gradient(
       1000px 700px at 88% 18%,
