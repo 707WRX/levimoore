@@ -665,3 +665,9 @@ section, main, .hero, .header, .footer{
     height: 30px;
   }
 }
+.footer__logo{
+  height: 28px;
+  width: auto;
+  display: block;
+  opacity: .95;
+}
