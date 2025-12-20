@@ -677,3 +677,18 @@ section, main, .hero, .header, .footer{
   border-radius: 50%;
   object-fit: cover;
 }
+/* Signature section portrait – limit height */
+.portrait--signature{
+  max-height: 420px;     /* Desktop */
+}
+
+.portrait--signature img{
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+}
+@media (max-width: 640px){
+  .portrait--signature{
+    max-height: 300px;
+  }
+}
