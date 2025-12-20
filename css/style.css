@@ -851,3 +851,39 @@ html[data-theme="light"] .status{
   border-color: color-mix(in srgb, var(--text) 10%, transparent);
   background: rgba(15,23,42,.04);
 }
+
+/* === Preserve gold accent + gold ambient background in light mode === */
+
+/* keep gold buttons gold */
+html[data-theme="light"] .btn--gold,
+html[data-theme="light"] .btn--primary,
+html[data-theme="light"] .btn--accent{
+  background: linear-gradient(180deg, rgba(214,186,110,.95), rgba(190,160,90,.95));
+  border-color: rgba(214,186,110,.85);
+  color: #1a1a1a;
+  box-shadow:
+    0 10px 28px rgba(214,186,110,.35),
+    inset 0 1px 0 rgba(255,255,255,.55);
+}
+
+html[data-theme="light"] .btn--gold:hover,
+html[data-theme="light"] .btn--primary:hover,
+html[data-theme="light"] .btn--accent:hover{
+  background: linear-gradient(180deg, rgba(224,196,125,1), rgba(200,170,100,1));
+}
+
+/* keep gold chips / accents */
+html[data-theme="light"] .pill.is-gold,
+html[data-theme="light"] .chip.is-gold{
+  background: rgba(214,186,110,.18);
+  border-color: rgba(214,186,110,.45);
+  color: rgba(60,45,10,.9);
+}
+
+/* global background: retain subtle gold ambient even in light mode */
+html[data-theme="light"] body{
+  background:
+    radial-gradient(1100px 700px at 20% -10%, rgba(214,186,110,.18), transparent 60%),
+    radial-gradient(900px 600px at 85% 10%, rgba(214,186,110,.12), transparent 55%),
+    linear-gradient(180deg, var(--bg0), var(--bg1) 60%, var(--bg2));
+}
