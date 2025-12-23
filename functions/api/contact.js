@@ -37,129 +37,67 @@ export async function onRequestPost({ request, env }) {
             border-radius:16px;
             padding:28px;
           ">
-            <!-- Header -->
             <tr>
-              <td style="padding-bottom:20px;">
-                <div style="
-                  font-size:18px;
-                  font-weight:600;
-                  letter-spacing:-0.01em;
-                ">
-                  New Contact Request
-                </div>
-                <div style="
-                  margin-top:4px;
-                  font-size:13px;
-                  color:rgba(255,255,255,.6);
-                ">
-                  Levi Moore · Fortuna, CA
-                </div>
+              <td style="font-size:18px;font-weight:600;letter-spacing:-0.01em;">
+                New Contact Request
+              </td>
+            </tr>
+            <tr>
+              <td style="font-size:13px;color:rgba(255,255,255,.55);padding-top:4px;">
+                Levi Moore · Fortuna, CA
               </td>
             </tr>
 
-            <!-- Divider -->
             <tr>
-              <td style="padding:16px 0;">
-                <div style="
-                  height:1px;
-                  background:linear-gradient(
-                    90deg,
-                    rgba(214,186,110,.0),
-                    rgba(214,186,110,.45),
-                    rgba(214,186,110,.0)
-                  );
-                "></div>
+              <td style="padding:18px 0;">
+                <div style="height:1px;background:linear-gradient(90deg,transparent,rgba(214,186,110,.45),transparent);"></div>
               </td>
             </tr>
 
-            <!-- Details -->
             <tr>
-              <td style="padding-bottom:18px;">
-                <table width="100%" cellpadding="0" cellspacing="0">
-                  <tr>
-                    <td style="font-size:13px;color:rgba(255,255,255,.55);padding-bottom:6px;">
-                      Name
-                    </td>
-                  </tr>
-                  <tr>
-                    <td style="font-size:15px;padding-bottom:14px;">
-                      ${name}
-                    </td>
-                  </tr>
+              <td style="font-size:13px;color:rgba(255,255,255,.55);">Name</td>
+            </tr>
+            <tr>
+              <td style="font-size:15px;padding-bottom:14px;">${name}</td>
+            </tr>
 
-                  <tr>
-                    <td style="font-size:13px;color:rgba(255,255,255,.55);padding-bottom:6px;">
-                      Email
-                    </td>
-                  </tr>
-                  <tr>
-                    <td style="font-size:15px;padding-bottom:14px;">
-                      ${email}
-                    </td>
-                  </tr>
+            <tr>
+              <td style="font-size:13px;color:rgba(255,255,255,.55);">Email</td>
+            </tr>
+            <tr>
+              <td style="font-size:15px;padding-bottom:14px;">${email}</td>
+            </tr>
 
-                  ${phone ? `
-                  <tr>
-                    <td style="font-size:13px;color:rgba(255,255,255,.55);padding-bottom:6px;">
-                      Phone
-                    </td>
-                  </tr>
-                  <tr>
-                    <td style="font-size:15px;padding-bottom:14px;">
-                      ${phone}
-                    </td>
-                  </tr>
-                  ` : ``}
+            ${phone ? `
+            <tr>
+              <td style="font-size:13px;color:rgba(255,255,255,.55);">Phone</td>
+            </tr>
+            <tr>
+              <td style="font-size:15px;padding-bottom:14px;">${phone}</td>
+            </tr>` : ``}
 
-                  ${intent ? `
-                  <tr>
-                    <td style="font-size:13px;color:rgba(255,255,255,.55);padding-bottom:6px;">
-                      Interest
-                    </td>
-                  </tr>
-                  <tr>
-                    <td style="font-size:15px;padding-bottom:14px;">
-                      ${intent}
-                    </td>
-                  </tr>
-                  ` : ``}
-                </table>
+            ${intent ? `
+            <tr>
+              <td style="font-size:13px;color:rgba(255,255,255,.55);">Interest</td>
+            </tr>
+            <tr>
+              <td style="font-size:15px;padding-bottom:18px;">${intent}</td>
+            </tr>` : ``}
+
+            <tr>
+              <td style="font-size:13px;color:rgba(255,255,255,.55);padding-bottom:6px;">Message</td>
+            </tr>
+            <tr>
+              <td style="font-size:15px;line-height:1.6;white-space:pre-line;color:rgba(255,255,255,.9);">
+                ${message}
               </td>
             </tr>
 
-            <!-- Message -->
             <tr>
-              <td style="padding-top:10px;">
-                <div style="
-                  font-size:13px;
-                  color:rgba(255,255,255,.55);
-                  margin-bottom:8px;
-                ">
-                  Message
-                </div>
-                <div style="
-                  font-size:15px;
-                  line-height:1.6;
-                  color:rgba(255,255,255,.9);
-                  white-space:pre-line;
-                ">
-                  ${message}
-                </div>
+              <td style="padding-top:26px;font-size:12px;color:rgba(255,255,255,.45);">
+                Sent via levimoore.com contact form
               </td>
             </tr>
-
-            <!-- Footer -->
-            <tr>
-              <td style="padding-top:28px;">
-                <div style="
-                  font-size:12px;
-                  color:rgba(255,255,255,.45);
-                ">
-                  This message was sent via levimoore.com contact form.
-                </div>
-              </td>
-            </tr>
-
           </table>
         </td>
       </tr>
@@ -175,8 +113,8 @@ export async function onRequestPost({ request, env }) {
         "Content-Type": "application/json"
       },
       body: JSON.stringify({
-        from: env.FROM_EMAIL,       // onboarding@resend.dev
-        to: env.TO_EMAIL,           // Levi@thehurstgrp.com
+        from: env.FROM_EMAIL,
+        to: env.TO_EMAIL,
         reply_to: email,
         subject: `New inquiry from ${name}`,
         html
