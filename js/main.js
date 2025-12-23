@@ -141,43 +141,6 @@ form?.addEventListener("submit", async (e)=>{
 const themeBtn = document.querySelector("#themeToggle");
 const root = document.documentElement;
 const themeMeta = document.querySelector('meta[name="theme-color"]');
-// Contact form → Resend (Cloudflare Pages Function)
-const contactForm = document.querySelector("#contactForm");
-const formStatus = document.querySelector("#formStatus");
-const submitBtn = document.querySelector("#submitBtn");
-
-if (contactForm) {
-  contactForm.addEventListener("submit", async (e) => {
-    e.preventDefault();
-
-    formStatus.textContent = "Sending…";
-    submitBtn.disabled = true;
-
-    const payload = {
-      name: contactForm.querySelector('[name="name"]').value.trim(),
-      email: contactForm.querySelector('[name="email"]').value.trim(),
-      message: contactForm.querySelector('[name="message"]').value.trim()
-    };
-
-    try {
-      const res = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload)
-      });
-
-      if (!res.ok) throw new Error("Request failed");
-
-      formStatus.textContent = "Message sent. Levi will get back to you shortly.";
-      contactForm.reset();
-    } catch (err) {
-      formStatus.textContent = "Something went wrong. Please try again.";
-    } finally {
-      submitBtn.disabled = false;
-    }
-  });
-}
-
 
 function setThemeColor(isLight){
   if(!themeMeta) return;
