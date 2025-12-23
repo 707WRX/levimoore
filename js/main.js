@@ -87,40 +87,35 @@ const status = $("#formStatus");
 
 async function postJSON(url, data){
   const res = await fetch(url, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
+    method:"POST",
+    headers: {"Content-Type":"application/json"},
     body: JSON.stringify(data)
   });
-  const out = await res.json().catch(() => ({}));
-  if (!res.ok) throw new Error(out?.error || "Request failed");
+  const out = await res.json().catch(()=>({}));
+  if(!res.ok) throw new Error(out?.error || "Request failed");
   return out;
 }
 
-form?.addEventListener("submit", async (e) => {
+form?.addEventListener("submit", async (e)=>{
   e.preventDefault();
-  if (!status) return;
-
-  // hard lock – prevents double submit
-  if (form.dataset.submitting === "true") return;
-  form.dataset.submitting = "true";
+  if(!status) return;
 
   const fd = new FormData(form);
 
   // honeypot
-  if ((fd.get("company") || "").toString().trim().length) {
+  if((fd.get("company") || "").toString().trim().length){
     status.classList.add("is-show");
     status.textContent = "Thanks — message received.";
     form.reset();
-    form.dataset.submitting = "false";
     return;
   }
 
   const payload = {
-    name: (fd.get("name") || "").toString().trim(),
-    email: (fd.get("email") || "").toString().trim(),
-    phone: (fd.get("phone") || "").toString().trim(),
-    intent: (fd.get("intent") || "").toString().trim(),
-    message: (fd.get("message") || "").toString().trim(),
+    name: (fd.get("name")||"").toString().trim(),
+    email: (fd.get("email")||"").toString().trim(),
+    phone: (fd.get("phone")||"").toString().trim(),
+    intent: (fd.get("intent")||"").toString().trim(),
+    message: (fd.get("message")||"").toString().trim(),
     source: window.location.pathname
   };
 
@@ -128,18 +123,17 @@ form?.addEventListener("submit", async (e) => {
   status.textContent = "Sending…";
 
   const btn = $("#submitBtn");
-  if (btn) btn.disabled = true;
+  if(btn) btn.disabled = true;
 
-  try {
+  try{
     await postJSON("/api/contact", payload);
     status.textContent = "Sent. Levi will get back to you shortly.";
     form.reset();
-  } catch (err) {
+  }catch(err){
     status.textContent = "Could not send right now. Please try again in a minute.";
     console.error(err);
-  } finally {
-    if (btn) btn.disabled = false;
-    form.dataset.submitting = "false";
+  }finally{
+    if(btn) btn.disabled = false;
   }
 });
 
