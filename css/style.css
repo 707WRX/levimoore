@@ -912,3 +912,7 @@ html[data-theme="light"] body{
     radial-gradient(900px 600px at 85% 10%, rgba(214,186,110,.12), transparent 55%),
     linear-gradient(180deg, var(--bg0), var(--bg1) 60%, var(--bg2));
 }
+
+.formNote {
+  display: none !important;
+}
